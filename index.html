@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="description" content="Count down to birthdays, exams, holidays and all the moments that matter.">
+  <title>Moment — your events, in view</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Moment home"><span class="brand-mark">m</span> moment<span class="brand-period">.</span></a>
+    <span class="today" id="today"></span>
+    <a class="top-link" href="#events">Your moments <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="headline">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> MAKE THE WAIT PART OF THE MAGIC</p>
+        <h1 id="headline">Good things<br>are <span>getting closer.</span></h1>
+        <p class="lede">Birthdays, big plans, fresh starts. Keep the moments you’re looking forward to right where you can see them.</p>
+        <button class="button button-dark" id="open-form" type="button"><span aria-hidden="true">＋</span> Add a moment</button>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div><div class="sun-core"></div>
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <span class="spark spark-a">✳</span><span class="spark spark-b">✳</span>
+        <span class="art-caption">something lovely<br>is on its way</span>
+      </div>
+      <span class="section-index">01 <i></i> THE COUNTDOWN</span>
+    </section>
+
+    <section class="events-section" id="events" aria-labelledby="events-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">A LITTLE SOMETHING TO LOOK FORWARD TO</p><h2 id="events-heading">Your moments<span class="heading-count" id="event-count">01</span></h2></div>
+        <button class="button button-light" id="add-another" type="button">＋ Add event</button>
+      </div>
+      <div class="event-grid" id="event-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-icon">✳</span><h3>Your next big thing starts here.</h3>
+        <p>Add a birthday, exam, trip, or anything worth counting down to.</p>
+        <button class="button button-dark" id="empty-add" type="button">＋ Add your first moment</button>
+      </div>
+      <p class="storage-note"><span aria-hidden="true">✳</span> Your events stay on this device, so your plans are always close.</p>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#top"><span class="brand-mark">m</span> moment<span class="brand-period">.</span></a><p>Make today feel a little closer to something.</p><span class="footer-year">© <span id="year"></span></span></footer>
+
+  <dialog id="event-dialog" aria-labelledby="dialog-title">
+    <form id="event-form">
+      <div class="dialog-top"><div><p class="eyebrow">SAVE SOMETHING TO LOOK FORWARD TO</p><h2 id="dialog-title">Add a moment<span>.</span></h2></div><button class="close-button" id="close-dialog" type="button" aria-label="Close">×</button></div>
+      <label for="event-name">What are we counting down to?</label>
+      <input id="event-name" name="name" maxlength="48" placeholder="e.g. My birthday" required autocomplete="off">
+      <div class="form-row"><div><label for="event-date">The date <span class="date-label-icon" aria-hidden="true">▦</span></label><input id="event-date" name="date" type="date" required></div><div><label for="event-category">The kind of moment</label><select id="event-category" name="category"><option value="birthday">🎂 Birthday</option><option value="exam">✏️ Exam</option><option value="holiday">✈️ Holiday</option><option value="celebration">🎉 Celebration</option><option value="other">✳ Something else</option></select></div></div>
+      <label for="event-note">A little note <span class="optional">OPTIONAL</span></label>
+      <input id="event-note" name="note" maxlength="90" placeholder="Make it a day to remember…" autocomplete="off">
+      <button class="button button-dark submit-button" type="submit">Save this moment <span aria-hidden="true">↗</span></button>
+    </form>
+  </dialog>
+</body>
+</html>
